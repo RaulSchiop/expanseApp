@@ -6,6 +6,7 @@
 export const Colors = {
    light: {
       text: "#1b1613",
+      textLight:"#5a493f",
       background: "#ffffff",
       primary: "#6e3b21",
       secondary: "#e99d77",
@@ -13,6 +14,7 @@ export const Colors = {
    },
    dark: {
       text: "#ede8e5",
+   
       background: "#000000",
       primary: "#deaa90",
       secondary: "#873c16",
