@@ -1,10 +1,174 @@
 import { Colors } from "@/constants/Colors";
-import { View,Text,Pressable } from "react-native";
-export default function Transactions(){
+import { View, Text, Pressable, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+export default function Transactions() {
+   return (
+      <View style={styles.container}>
+         <View style={styles.conatinerTitle}>
+            <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+               Transactions
+            </Text>
+            <Pressable>
+               <Text style={{ color: Colors.light.accent }}>See all</Text>
+            </Pressable>
+         </View>
+         <View style={styles.listContainer}>
+            <View style={styles.cardContainer}>
+               <View style={styles.dataContainer}>
+                  <View
+                     style={{
+                        backgroundColor: "yellow",
+                        padding: 10,
+                        borderRadius: 10,
+                     }}
+                  >
+                     <Ionicons
+                        name="fast-food-outline"
+                        size={24}
+                        color="black"
+                     />
+                  </View>
+                  <View>
+                     <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+                        Food
+                     </Text>
+                     <Text>20 aprilie</Text>
+                  </View>
+               </View>
+               <Text>$ 240</Text>
+            </View>
 
-    return(
-        <View></View>
-    )
+            <View style={styles.cardContainer}>
+               <View style={styles.dataContainer}>
+                  <View
+                     style={{
+                        backgroundColor: "yellow",
+                        padding: 10,
+                        borderRadius: 10,
+                     }}
+                  >
+                     <Ionicons
+                        name="fast-food-outline"
+                        size={24}
+                        color="black"
+                     />
+                  </View>
+                  <View>
+                     <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+                        Food
+                     </Text>
+                     <Text>20 aprilie</Text>
+                  </View>
+               </View>
+               <Text>$ 240</Text>
+            </View>
 
-    
+            <View style={styles.cardContainer}>
+               <View style={styles.dataContainer}>
+                  <View
+                     style={{
+                        backgroundColor: "yellow",
+                        padding: 10,
+                        borderRadius: 10,
+                     }}
+                  >
+                     <Ionicons
+                        name="fast-food-outline"
+                        size={24}
+                        color="black"
+                     />
+                  </View>
+                  <View>
+                     <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+                        Food
+                     </Text>
+                     <Text>20 aprilie</Text>
+                  </View>
+               </View>
+               <Text>$ 240</Text>
+            </View>
+
+            <View style={styles.cardContainer}>
+               <View style={styles.dataContainer}>
+                  <View
+                     style={{
+                        backgroundColor: "yellow",
+                        padding: 10,
+                        borderRadius: 10,
+                     }}
+                  >
+                     <Ionicons
+                        name="fast-food-outline"
+                        size={24}
+                        color="black"
+                     />
+                  </View>
+                  <View>
+                     <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+                        Food
+                     </Text>
+                     <Text>20 aprilie</Text>
+                  </View>
+               </View>
+               <Text>$ 240</Text>
+            </View>
+
+            <View style={styles.cardContainer}>
+               <View style={styles.dataContainer}>
+                  <View
+                     style={{
+                        backgroundColor: "yellow",
+                        padding: 10,
+                        borderRadius: 10,
+                     }}
+                  >
+                     <Ionicons
+                        name="fast-food-outline"
+                        size={24}
+                        color="black"
+                     />
+                  </View>
+                  <View>
+                     <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+                        Food
+                     </Text>
+                     <Text>20 aprilie</Text>
+                  </View>
+               </View>
+               <Text style={{fontWeight:'semibold'}}>$ 240</Text>
+            </View>
+         </View>
+      </View>
+   );
 }
+
+const styles = StyleSheet.create({
+   container: {
+      marginTop: 10,
+      width: "100%",
+      paddingHorizontal: 20,
+   },
+   conatinerTitle: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+   },
+   listContainer: {
+      gap:20,
+      backgroundColor: "#e6e6e6",
+      borderRadius: 10,
+      padding: 10,
+      marginTop: 10,
+   },
+   cardContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+   },
+   dataContainer: {
+      flexDirection: "row",
+      gap: 10,
+      alignItems: "center",
+      justifyContent: "center",
+   },
+});

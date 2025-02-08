@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 export default function Balance() {
    const scale = new Animated.Value(0.5);
    const fade = new Animated.Value(0);
-   const scale2 = new Animated.Value(0.5);
+   const scale2 = new Animated.Value(1);
 
    useEffect(() => {
       Animated.timing(fade, {
