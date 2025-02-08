@@ -1,4 +1,11 @@
-import { View, Text, Pressable, StyleSheet, Animated } from "react-native";
+import {
+   View,
+   Text,
+   Pressable,
+   StyleSheet,
+   Animated,
+   Platform,
+} from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useEffect, useState } from "react";
 
@@ -23,16 +30,24 @@ export default function ToggleTime() {
          useNativeDriver: true,
       }).start();
    }, []);
-
-   function handlePess1(): void {
-      setPresed(1);
+   {
+      Platform.OS === "android" &&
+         useEffect(() => {
+            Animated.timing(fadeIn, {
+               toValue: 1,
+               duration: 300,
+               useNativeDriver: true,
+            }).start();
+            Animated.timing(scale, {
+               toValue: 1,
+               duration: 300,
+               useNativeDriver: true,
+            }).start();
+         }, [presed]);
    }
-   function handlePess2(): void {
-      setPresed(2);
-   }
 
-   function handlePess3(): void {
-      setPresed(3);
+   function handlePess(option: number): void {
+      setPresed(option);
    }
 
    return (
@@ -41,23 +56,29 @@ export default function ToggleTime() {
       >
          <Pressable
             style={[styles.pressContainer, presed === 1 && styles.pressed]}
-            onPress={handlePess1}
+            onPress={() => handlePess(1)}
          >
-            <Text style={presed === 1 ? [styles.text] : styles.textInactive}>This Week</Text>
+            <Text style={presed === 1 ? [styles.text] : styles.textInactive}>
+               This Week
+            </Text>
          </Pressable>
 
          <Pressable
             style={[styles.pressContainer, presed === 2 && styles.pressed]}
-            onPress={handlePess2}
+            onPress={() => handlePess(2)}
          >
-            <Text style={presed === 2 ? [styles.text] : styles.textInactive}>This Month</Text>
+            <Text style={presed === 2 ? [styles.text] : styles.textInactive}>
+               This Month
+            </Text>
          </Pressable>
 
          <Pressable
             style={[styles.pressContainer, presed === 3 && styles.pressed]}
-            onPress={handlePess3}
+            onPress={() => handlePess(3)}
          >
-            <Text style={presed === 3 ? [styles.text] : styles.textInactive}>This Year</Text>
+            <Text style={presed === 3 ? [styles.text] : styles.textInactive}>
+               This Year
+            </Text>
          </Pressable>
       </Animated.View>
    );
@@ -65,7 +86,7 @@ export default function ToggleTime() {
 
 const styles = StyleSheet.create({
    container: {
-      marginTop: 20,
+      marginTop: 10,
       backgroundColor: "#b3b3b3",
       width: "90%",
       flexDirection: "row",
@@ -88,7 +109,7 @@ const styles = StyleSheet.create({
       backgroundColor: Colors.light.background,
       padding: 10,
    },
-   textInactive:{
-    color:Colors.light.textLight
-   }
+   textInactive: {
+      color: Colors.light.textLight,
+   },
 });

@@ -9,6 +9,7 @@ import Transactions from "@/components/Transactions";
 export default function HomePage() {
    return (
       <View style={styles.container}>
+         <StatusBar backgroundColor={Colors.light.background} style="dark"></StatusBar>
          <Header />
          <ToggleTime></ToggleTime>
          <Balance></Balance>
@@ -20,7 +21,7 @@ export default function HomePage() {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      marginTop: 0,
+      marginTop: 40,
       backgroundColor: Colors.light.background,
       alignItems:'center'
    },
