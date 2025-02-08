@@ -18,13 +18,13 @@ export default function Header() {
    useEffect(() => {
       Animated.timing(scale2, {
          toValue: 1,
-         duration: 1000,
+         duration: 500,
          useNativeDriver: true,
       }).start();
 
       Animated.timing(fadeAnim, {
          toValue: 1,
-         duration: 1000,
+         duration: 500,
          useNativeDriver: true,
       }).start();
    }, []);

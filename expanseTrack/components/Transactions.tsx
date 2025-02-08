@@ -1,9 +1,29 @@
 import { Colors } from "@/constants/Colors";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, Animated } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useEffect } from "react";
 export default function Transactions() {
+   const scale = new Animated.Value(0.5);
+   const fade = new Animated.Value(0);
+
+   useEffect(() => {
+
+    Animated.timing(scale,{
+        toValue:1,
+        duration:500,
+        useNativeDriver: true,
+    }).start()
+
+    Animated.timing(fade,{
+        toValue:1,
+        duration:500,
+        useNativeDriver: true,
+    }).start()
+
+   }, []);
+
    return (
-      <View style={styles.container}>
+      <Animated.View style={[styles.container,{opacity:fade,transform:[{scale}]}]}>
          <View style={styles.conatinerTitle}>
             <Text style={{ fontWeight: "bold", fontSize: 20 }}>
                Transactions
@@ -135,10 +155,10 @@ export default function Transactions() {
                      <Text>20 aprilie</Text>
                   </View>
                </View>
-               <Text style={{fontWeight:'semibold'}}>$ 240</Text>
+               <Text style={{ fontWeight: "semibold" }}>$ 240</Text>
             </View>
          </View>
-      </View>
+      </Animated.View>
    );
 }
 
@@ -154,7 +174,7 @@ const styles = StyleSheet.create({
       justifyContent: "space-between",
    },
    listContainer: {
-      gap:20,
+      gap: 20,
       backgroundColor: "#e6e6e6",
       borderRadius: 10,
       padding: 10,
