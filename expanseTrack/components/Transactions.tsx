@@ -38,7 +38,7 @@ export default function Transactions() {
                flexDirection: "row",
                alignItems: "center",
                justifyContent: "space-between",
-               marginBottom: 10,
+               marginBottom: Platform.OS === "ios" ? 20 : 10,
             }}
          >
             <View
@@ -46,7 +46,6 @@ export default function Transactions() {
                   flexDirection: "row",
                   alignItems: "center",
                   gap: 10,
-                  marginBottom: Platform.OS === "ios" ? 25 : 0,
                }}
             >
                <FontAwesome5 name="coins" size={24} color="black" />
@@ -176,7 +175,7 @@ export default function Transactions() {
 
 const styles = StyleSheet.create({
    container: {
-      marginTop: 20,
+      marginTop: Platform.OS==="android"?0:20,
       width: "100%",
       paddingHorizontal: 20,
    },
@@ -184,6 +183,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
+      marginBottom:10,
    },
    listContainer: {
       gap: 20,

@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
    },
    viewIncome: {
       width: "50%",
-      backgroundColor: Colors.light.secondary,
+      backgroundColor: Colors.light.primary,
       paddingVertical: 20,
       paddingHorizontal: 20,
       borderRadius: 10,

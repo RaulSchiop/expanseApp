@@ -14,7 +14,7 @@ export default function Header() {
    const fadeAnim = new Animated.Value(0);
    const scale = new Animated.Value(1);
    const scale2 = new Animated.Value(0.5);
-   
+
    useEffect(() => {
       Animated.timing(scale2, {
          toValue: 1,
@@ -103,8 +103,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
    },
    button: {
-      backgroundColor: Colors.light.accent,
-
+      backgroundColor: Colors.dark.accent,
       alignItems: "center",
       justifyContent: "center",
       padding: 8,
