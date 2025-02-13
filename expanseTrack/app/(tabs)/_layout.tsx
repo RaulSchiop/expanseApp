@@ -1,9 +1,10 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Platform, View } from "react-native";
+import { Dimensions, Platform, View } from "react-native";
 import { Colors } from "@/constants/Colors";
 
 export default function TabLayout() {
+   const {height,width}=Dimensions.get('window')
    return (
       <View style={{ flex: 1, backgroundColor: "white" }}>
          <Tabs
@@ -11,7 +12,7 @@ export default function TabLayout() {
                headerShown: false,
                tabBarActiveTintColor: "white",
                tabBarInactiveTintColor: Colors.light.secondary,
-               tabBarShowLabel: false,
+               tabBarShowLabel:false,
 
                tabBarStyle: {
                   backgroundColor: Colors.light.accent,
@@ -20,14 +21,14 @@ export default function TabLayout() {
                   width: "90%",
                   borderRadius: 30,
                   marginBottom: Platform.OS === "ios" ? 20 : 10,
-                  flexDirection: "row",
+                  flexDirection: height<600 && width <370 ? 'row' :'column',
                   borderTopWidth: 0,
                   alignItems: "center",
                   justifyContent: "center",
                },
                tabBarItemStyle: {
                   flex: 1,
-                  flexDirection:Platform.OS==="android"?'row':"column",
+                  flexDirection:Platform.OS==="android"?'row':'column',
                   justifyContent: "center",
                   alignItems: "center",
                },
