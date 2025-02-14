@@ -6,7 +6,7 @@ import { Colors } from "@/constants/Colors";
 export default function TabLayout() {
    const {height,width}=Dimensions.get('window')
    return (
-      <View style={{ flex: 1, backgroundColor: "white" }}>
+      <View style={{ flex: 1, backgroundColor:Colors.light.background }}>
          <Tabs
             screenOptions={{
                headerShown: false,
@@ -21,7 +21,7 @@ export default function TabLayout() {
                   width: "90%",
                   borderRadius: 30,
                   marginBottom: Platform.OS === "ios" ? 20 : 10,
-                  flexDirection: height<600 && width <370 ? 'row' :'column',
+                  flexDirection: height<600 && width <370 ? 'row' :"row",
                   borderTopWidth: 0,
                   alignItems: "center",
                   justifyContent: "center",

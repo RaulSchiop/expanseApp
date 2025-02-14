@@ -2,11 +2,17 @@ import { View, Text, StyleSheet, Animated, Pressable } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 export default function Balance() {
    const scale = new Animated.Value(0.5);
    const fade = new Animated.Value(0);
    const scale2 = new Animated.Value(1);
+   const navigation = useRouter();
+
+   function handleReportPress() {
+      navigation.push("/raport");
+   }
 
    useEffect(() => {
       Animated.timing(fade, {
@@ -79,6 +85,7 @@ export default function Balance() {
                onPressIn={animate}
                onPressOut={reset}
                style={styles.button}
+               onPress={handleReportPress}
             >
                <Text style={{ color: "white", fontWeight: "bold" }}>
                   View Report

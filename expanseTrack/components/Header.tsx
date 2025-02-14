@@ -9,11 +9,16 @@ import {
 import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect } from "react";
+import { useRouter } from "expo-router";
 
 export default function Header() {
    const fadeAnim = new Animated.Value(0);
    const scale = new Animated.Value(1);
    const scale2 = new Animated.Value(0.5);
+   const router =useRouter()
+   function handleAddExpense() {
+      router.push("/addExpense"); // Correct method for expo-router
+   }
 
    useEffect(() => {
       Animated.timing(scale2, {
@@ -71,6 +76,7 @@ export default function Header() {
          </View>
          <Animated.View style={[{ transform: [{ scale }] }]}>
             <Pressable
+               onPress={handleAddExpense}
                onPressIn={animate}
                onPressOut={reset}
                style={({ pressed }) =>
