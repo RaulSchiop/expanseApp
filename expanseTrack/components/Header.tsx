@@ -15,9 +15,9 @@ export default function Header() {
    const fadeAnim = new Animated.Value(0);
    const scale = new Animated.Value(1);
    const scale2 = new Animated.Value(0.5);
-   const router =useRouter()
+   const router = useRouter();
    function handleAddExpense() {
-      router.push("/addExpense"); // Correct method for expo-router
+      router.push("/addExpense");
    }
 
    useEffect(() => {

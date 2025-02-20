@@ -1,24 +1,27 @@
 import { Ionicons } from "@expo/vector-icons";
 import { View, StyleSheet, Text, Pressable, TextInput } from "react-native";
+import { Colors } from "@/constants/Colors";
 
 type Category = {
    nameIcon: keyof typeof Ionicons.glyphMap;
    children?: string;
    type: "Button" | "Input";
+   onPress?:()=>void
 };
 
 export default function CategoryContainer({
    nameIcon,
    children,
    type,
+   onPress
 }: Category) {
    return type === "Button" ? (
-      <View style={styles.container}>
+      <Pressable onPress={onPress} style={styles.container}>
          <View style={styles.icon}>
             <Ionicons name={nameIcon} size={20} color="white"></Ionicons>
          </View>
          <Text style={styles.text}>{children}</Text>
-      </View>
+      </Pressable>
    ) : (
       <View style={styles.containerInput}>
          <View>
@@ -63,7 +66,7 @@ const styles = StyleSheet.create({
    icon: {
       padding: 8,
       borderRadius: 100,
-      backgroundColor: "#b3b3b3",
+      backgroundColor: Colors.light.accent,
    },
    text: {
       fontSize: 20,
