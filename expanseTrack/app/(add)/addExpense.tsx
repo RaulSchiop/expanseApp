@@ -197,6 +197,13 @@ export default function addEpense() {
                >
                   Write Note
                </CategoryContainer>
+               <CategoryContainer
+                  type="Button"
+                  nameIcon="calendar"
+                  onPress={handleModalOpen}
+               >
+                  Set Date
+               </CategoryContainer>
                {presed === 3 ? (
                   <CategoryContainer
                      type="Button"
