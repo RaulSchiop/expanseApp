@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView ,Animated} from "react-native";
 import IconsCategory from "@/components/IconsCategory";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -9,11 +9,30 @@ import Entypo from "@expo/vector-icons/Entypo";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import Feather from '@expo/vector-icons/Feather';
+import { useEffect } from "react";
 
 export default function Catrgory() {
+
+       const scale = new Animated.Value(0.5);
+       const opacity = new Animated.Value(0);
+    
+       useEffect(() => {
+          const animateEntrece = Animated.timing(scale, {
+             toValue: 1,
+             useNativeDriver: true,
+             duration: 500,
+          }).start();
+    
+          const animteOpacity = Animated.timing(opacity, {
+             toValue: 1,
+             useNativeDriver: true,
+             duration: 500,
+          }).start();
+       }, []);
+
    return (
       <ScrollView style={styles.container}>
-         <View style={styles.containerSection}>
+         <Animated.View style={[styles.containerSection, { transform: [{ scale }] , opacity}]}>
             <Text style={styles.title}>Health & Fitness</Text>
             <View style={styles.iconsContainer}>
                <IconsCategory title="Run" bgColor="#ebd4ef">
@@ -33,8 +52,8 @@ export default function Catrgory() {
                   <FontAwesome5 name="dumbbell" size={24} color="#8287ff" />
                </IconsCategory>
             </View>
-         </View>
-         <View style={styles.containerSection}>
+         </Animated.View>
+         <Animated.View style={[styles.containerSection, { transform: [{ scale }] , opacity}]}>
             <Text style={styles.title}>Food & Shopping</Text>
             <View style={styles.iconsContainer}>
                <IconsCategory title="Grocery" bgColor="#c4ecd2">
@@ -54,8 +73,8 @@ export default function Catrgory() {
                   <Ionicons name="restaurant" size={24} color="#f5ce0a" />
                </IconsCategory>
             </View>
-         </View>
-         <View style={styles.containerSection}>
+         </Animated.View>
+         <Animated.View style={[styles.containerSection, { transform: [{ scale }] , opacity}]}>
             <Text style={styles.title}>Bills & Utilities</Text>
             <View style={styles.iconsContainer}>
                <IconsCategory title="Phone" bgColor="#fdb9e3">
@@ -75,8 +94,8 @@ export default function Catrgory() {
                   <FontAwesome name="wifi" size={24} color="#034efc" />
                </IconsCategory>
             </View>
-         </View>
-         <View style={styles.containerSection}>
+         </Animated.View>
+         <Animated.View style={[styles.containerSection, { transform: [{ scale }] , opacity}]}>
             <Text style={styles.title}>Shopping</Text>
             <View style={styles.iconsContainer}>
                <IconsCategory title="Clothes" bgColor="#ced1d5">
@@ -100,7 +119,7 @@ export default function Catrgory() {
                   <Feather name="smartphone" size={24} color="#2459db" />
                </IconsCategory>
             </View>
-         </View>
+         </Animated.View>
       </ScrollView>
    );
 }

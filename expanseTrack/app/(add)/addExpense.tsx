@@ -15,7 +15,6 @@ import CategoryContainer from "@/components/CategoriesContainer";
 import { useRouter } from "expo-router";
 import ButtonSheet from "@/components/ButtonSheet";
 import { TextInput } from "react-native-gesture-handler";
-import { transform } from "@babel/core";
 
 export default function addEpense() {
    const navigation = useNavigation();
@@ -128,6 +127,7 @@ export default function addEpense() {
             return (
                <Animated.View style={[{ transform: [{ scale }] }]}>
                   <Pressable
+                     onPress={() => router.replace("/")}
                      onPressIn={animate}
                      onPressOut={reset}
                      style={{ padding: 10, borderRadius: 100 }}
@@ -241,7 +241,13 @@ export default function addEpense() {
                behavior={Platform.OS === "ios" ? "padding" : "height"}
             >
                <View>
-                  <Text style={{ alignSelf: "center" ,fontSize:20,fontWeight:'bold' }}>
+                  <Text
+                     style={{
+                        alignSelf: "center",
+                        fontSize: 20,
+                        fontWeight: "bold",
+                     }}
+                  >
                      Select when to get notfy
                   </Text>
                   <Animated.View style={[{ transform: [{ scale: scaleD }] }]}>

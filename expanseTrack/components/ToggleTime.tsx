@@ -20,13 +20,13 @@ export default function ToggleTime() {
    useEffect(() => {
       Animated.timing(fadeIn, {
          toValue: 1,
-         duration: 1000,
+         duration: 500,
          useNativeDriver: true,
       }).start();
 
       Animated.timing(scale, {
          toValue: 1,
-         duration: 1000,
+         duration: 500,
          useNativeDriver: true,
       }).start();
    }, []);

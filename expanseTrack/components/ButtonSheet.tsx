@@ -17,8 +17,8 @@ export default function ButtonSheet({
    children,
    height = "50%",
 }: ButtonSheetType) {
-   const opacityB = useRef(new Animated.Value(0)).current;
-   const translateY = useRef(new Animated.Value(300)).current;
+   const opacityB = new Animated.Value(0);
+   const translateY = new Animated.Value(300);
 
    useEffect(() => {
       if (show) {
